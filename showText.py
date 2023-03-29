@@ -8,7 +8,9 @@ import argparse
 
 from PIL import Image, ImageDraw, ImageFont
 
+parser = argparse.ArgumentParser(description='显示文本')
 parser.add_argument('-t', '--text', type=str,help='text (显示文本)')
+parser.add_argument('-he', '--height', type=int, default=26,help='text (显示文本)')
 
 
 WIDTH = 128
@@ -29,32 +31,29 @@ def init_oled():
     oled.show()
     return oled
 
-def img_text(text):
+def create_text(text,text_height):
     # 创建一个空白的图像
     # 确保用“1”表示 1bit 的颜色
     image = Image.new("1", (oled.width, oled.height))
     # 获取绘制对象来绘制图像
     draw = ImageDraw.Draw(image)
-    # 绘制一个白色的背景
-    draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
-    # 绘制一个小的内边框
-    draw.rectangle((BORDER, BORDER, oled.width - BORDER - 1, oled.height - BORDER - 1), fill=0, outline=0)
     # 加载默认样式
     font = ImageFont.load_default()
     # 绘制一些文字
     text = text
     (font_width, font_height) = font.getsize(text)
     draw.text(
-        (oled.width // 2 - font_width // 2, oled.height // 2 - font_height // 2),
+        (oled.width // 2 - font_width // 2, text_height),
         text,
         font=font,
         fill=255,
     )
+    return image
 
 
 def showText(text,height):
     try:
-        text_obj = create_text(text,int(height))
+        text_obj = create_text(text,height)
         oled.image(text_obj)
         oled.show()
     except BaseException as be:
@@ -63,6 +62,7 @@ def showText(text,height):
 
 if __name__ == "__main__":
     oled = init_oled()
+    args = parser.parse_args()
 
     try:
         showText(args.text,args.height)

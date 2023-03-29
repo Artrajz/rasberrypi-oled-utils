@@ -8,6 +8,7 @@ import argparse
 
 from PIL import Image, ImageDraw, ImageFont
 
+parser = argparse.ArgumentParser(description='显示图片')
 parser.add_argument('-i', '--img', type=str,help='img path (图片路径)')
 
 
@@ -47,9 +48,10 @@ def showImg(img_path):
 
 if __name__ == "__main__":
     oled = init_oled()
+    args = parser.parse_args()
 
     try:
-        jpg(args.img)
+        showImg(args.img)
 
     except KeyboardInterrupt:
         oled.fill(0)
