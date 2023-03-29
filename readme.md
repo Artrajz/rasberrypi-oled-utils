@@ -1,5 +1,3 @@
-[TOC]
-
 # raspberry-pi-oled
 
 - 这是一个在树莓派上使用SSD1306 oled的脚本，测试在SPI协议、128x64分辨率下可以正常使用，理论上支持其他分辨率的屏幕和I2C协议。
@@ -53,6 +51,6 @@ python showIP.py
 
 ### 播放bad apple
 
-我准备了bad apple的序列化文件，文件名是**bad_apple.pkl**,安装好依赖直接运行showGIF.py就可以播放bad apple了。
+我准备了bad apple的序列化文件，文件名是**bad_apple.pkl**，安装好依赖直接运行showGIF.py就可以播放bad apple了。
 
 <img src="https://github.com/Artrajz/picgo-img/blob/main/img/bad_apple.gif?raw=true" />
