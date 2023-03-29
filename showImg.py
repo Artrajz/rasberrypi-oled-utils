@@ -8,7 +8,7 @@ import argparse
 
 from PIL import Image, ImageDraw, ImageFont
 
-parser = argparse.ArgumentParser(description='显示图片')
+
 parser.add_argument('-i', '--img', type=str,help='img path (图片路径)')
 
 
@@ -34,11 +34,13 @@ def init_oled():
 def showImg(img_path):
     try:
         im = Image.open(img_path)
-        width = im.size[0]   # 获取宽度
-        height = im.size[1]   # 获取高度
-        scale = height / 64
         
-        im = im.resize((int(width / scale), int(height / scale)))
+        #width = im.size[0]   # 获取宽度
+        #height = im.size[1]   # 获取高度
+        #scale = height / 64
+        #im = im.resize((int(width / scale), int(height / scale)))
+        
+        im = im.resize((128, 64))
         im = im.convert('1')
         oled.image(im)
         oled.show()
@@ -48,10 +50,9 @@ def showImg(img_path):
 
 if __name__ == "__main__":
     oled = init_oled()
-    args = parser.parse_args()
 
     try:
-        showImg(args.img)
+        jpg(args.img)
 
     except KeyboardInterrupt:
         oled.fill(0)
