@@ -39,7 +39,7 @@ python showGIF.py
 - 目前显示gif需要先将GIF拆分成图片，可以使用[gif-split](https://github.com/Artrajz/gif-split)，也可以自行拆分。
 - 拆分后在脚本里修改所拆分图片的路径。
 - 支持将转换好的图片对象序列化保存：同一个gif第一次运行会比较慢，第二次以后直接读取序列化文件播放。
-- 序列化之后不用原图片只需要**.pkl**文件就可以播放，如果要重新生成则需删除.pkl文件或者重命名为其他名字。
+- 序列化之后只需要**pkl**文件就可以播放，如果要重新生成则需删除.pkl文件或者重命名为其他名字。
 
 
 ### 显示树莓派ip
@@ -56,5 +56,5 @@ python showIP.py
 
 ### 播放bad apple
 
-我准备了bad apple的序列化文件，文件名是**bad_apple.pkl**，安装好依赖直接运行showGIF.py就可以播放bad apple了。
+我准备了bad apple的序列化文件，文件名是**bad_apple.pkl**，安装好依赖直接运行showGIF.py就可以播放bad apple
 <img src="https://github.com/Artrajz/picgo-img/blob/main/img/bad_apple.gif?raw=true" />
