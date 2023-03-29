@@ -43,7 +43,7 @@ def dsp_gif():
     except:
         flag = False
     if not flag:
-        path = abs_path+'/pic/bad_apple_gif2gray_jpg/'
+        path = abs_path+'/bad_apple_g2j/'
         files = os.listdir(path)  # 不是按顺序读取的
         files.sort(key=lambda x: int(x.split('.')[0]))  # 使用sort进行按顺序读取
         

@@ -58,3 +58,7 @@ python showIP.py
 
 我准备了bad apple的序列化文件，文件名是**bad_apple.pkl**，安装好依赖直接运行showGIF.py就可以播放bad apple
 <img src="https://github.com/Artrajz/picgo-img/blob/main/img/bad_apple.gif?raw=true" />
+
+
+
+如有问题可以在issue中提出
